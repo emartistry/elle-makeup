@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elle Makeup Artistry | Professional MUA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a1a1a;
+            --accent: #d4af37; /* Cinematic Gold */
+            --bg: #fafafa;
+            --text: #333;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--bg);
+        }
+
+        header {
+            height: 60vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&q=80') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+        h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; margin: 0; }
+
+        nav {
+            position: sticky; top: 0; background: white; padding: 1rem;
+            text-align: center; border-bottom: 1px solid #eee; z-index: 1000;
+        }
+
+        nav a { text-decoration: none; color: var(--primary); margin: 0 15px; font-weight: bold; font-size: 0.9rem; }
+
+        section { padding: 80px 10%; max-width: 1200px; margin: auto; }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .portfolio-item {
+            aspect-ratio: 4/5;
+            background: #eee;
+            overflow: hidden;
+            border-radius: 4px;
+        }
+
+        .portfolio-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.3s; }
+        .portfolio-item img:hover { transform: scale(1.05); }
+
+        .rates-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        .rates-table td { padding: 15px; border-bottom: 1px solid #ddd; }
+        .price { text-align: right; font-weight: bold; color: var(--accent); }
+
+        .contact-btn {
+            display: inline-block; padding: 15px 30px; background: var(--primary);
+            color: white; text-decoration: none; border-radius: 2px; margin-top: 20px;
+        }
+
+        @media (max-width: 768px) { h1 { font-size: 2.5rem; } section { padding: 50px 5%; } }
+    </style>
+</head>
+<body>
+
+<header>
+    <div>
+        <h1>Elle Makeup Artistry</h1>
+        <p>Clean. Cinematic. Timeless.</p>
+    </div>
+</header>
+
+<nav>
+    <a href="#about">ABOUT</a>
+    <a href="#portfolio">PORTFOLIO</a>
+    <a href="#rates">RATES</a>
+    <a href="#contact">CONTACT</a>
+</nav>
+
+<section id="about">
+    <h2>About Me</h2>
+    <p>Hi, I'm Elle. I specialize in enhancing natural beauty with a focus on high-definition, cinematic finishes. My approach is minimalist yet impactful, ensuring every client looks stunning both in person and on camera.</p>
+</section>
+
+<section id="portfolio" style="background: #fff;">
+    <h2>Portfolio</h2>
+    <div class="portfolio-grid">
+        <div class="portfolio-item"><img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&q=80" alt="Bridal"></div>
+        <div class="portfolio-item"><img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&q=80" alt="Editorial"></div>
+        <div class="portfolio-item"><img src="https://images.unsplash.com/photo-1522337621169-d6309bb82d91?auto=format&fit=crop&q=80" alt="Glam"></div>
+    </div>
+</section>
+
+<section id="rates">
+    <h2>Rates & Services</h2>
+    <table class="rates-table">
+        <tr><td>Bridal Makeup & Hair</td><td class="price">$250</td></tr>
+        <tr><td>Special Occasion / Glam</td><td class="price">$120</td></tr>
+        <tr><td>Editorial / Photoshoot (Half Day)</td><td class="price">$400</td></tr>
+        <tr><td>Prom / Graduation</td><td class="price">$100</td></tr>
+    </table>
+</section>
+
+<section id="contact" style="text-align: center;">
+    <h2>Book an Inquiry</h2>
+    <p>Ready to collaborate? Send me an email or find me on social media.</p>
+    <a href="mailto:hello@ellemakeup.com" class="contact-btn">Email Me Directly</a>
+    <div style="margin-top: 20px;">
+        <p>Instagram: @ElleMakeupArtistry</p>
+    </div>
+</section>
+
+</body>
+</html>
