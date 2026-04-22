@@ -4,79 +4,133 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Elle Makeup Artistry | Professional MUA</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #1a1a1a;
-            --accent: #d4af37; /* Cinematic Gold */
-            --bg: #fafafa;
-            --text: #333;
+            --dark: #0f0f0f; /* Deep Midnight */
+            --gold: #c5a059; /* Muted Champagne Gold */
+            --light: #ffffff;
+            --grey: #f4f4f4;
+            --text: #2d2d2d;
         }
+
+        * { box-sizing: border-box; }
 
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             margin: 0;
-            line-height: 1.6;
+            line-height: 1.7;
             color: var(--text);
-            background-color: var(--bg);
+            background-color: var(--light);
+            scroll-behavior: smooth;
         }
 
+        /* Hero Section */
         header {
-            height: 60vh;
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+            height: 80vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
                         url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&q=80') center/cover;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
             text-align: center;
+            padding: 0 20px;
         }
 
-        h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; margin: 0; }
+        .hero-content h1 { 
+            font-family: 'Bodoni Moda', serif; 
+            font-size: clamp(2.5rem, 8vw, 4.5rem); 
+            margin: 0; 
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        
+        .hero-content p { 
+            font-size: 1.1rem; 
+            letter-spacing: 4px; 
+            text-transform: uppercase; 
+            margin-top: 10px;
+            color: var(--gold);
+        }
 
+        /* Navigation */
         nav {
-            position: sticky; top: 0; background: white; padding: 1rem;
+            position: sticky; top: 0; background: rgba(255,255,255,0.98); 
+            padding: 1.2rem;
             text-align: center; border-bottom: 1px solid #eee; z-index: 1000;
+            backdrop-filter: blur(5px);
         }
 
-        nav a { text-decoration: none; color: var(--primary); margin: 0 15px; font-weight: bold; font-size: 0.9rem; }
+        nav a { 
+            text-decoration: none; color: var(--dark); 
+            margin: 0 20px; font-weight: 500; font-size: 0.8rem; 
+            letter-spacing: 2px; transition: 0.3s;
+        }
+        nav a:hover { color: var(--gold); }
 
-        section { padding: 80px 10%; max-width: 1200px; margin: auto; }
+        section { padding: 100px 10%; max-width: 1400px; margin: auto; }
+        h2 { 
+            font-family: 'Bodoni Moda', serif; 
+            font-size: 2.5rem; text-align: center; 
+            margin-bottom: 50px; position: relative; 
+        }
+        h2::after {
+            content: ''; display: block; width: 50px; height: 2px; 
+            background: var(--gold); margin: 15px auto;
+        }
 
+        /* Portfolio Grid */
         .portfolio-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 15px;
         }
 
         .portfolio-item {
-            aspect-ratio: 4/5;
-            background: #eee;
+            position: relative;
+            aspect-ratio: 1/1;
             overflow: hidden;
-            border-radius: 4px;
+            background: var(--grey);
         }
 
-        .portfolio-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.3s; }
-        .portfolio-item img:hover { transform: scale(1.05); }
+        .portfolio-item img { 
+            width: 100%; height: 100%; object-fit: cover; 
+            filter: grayscale(20%); transition: 0.6s cubic-bezier(0.25, 1, 0.5, 1); 
+        }
+        .portfolio-item:hover img { transform: scale(1.08); filter: grayscale(0%); }
 
-        .rates-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-        .rates-table td { padding: 15px; border-bottom: 1px solid #ddd; }
-        .price { text-align: right; font-weight: bold; color: var(--accent); }
+        /* Rates Table */
+        .rates-container { background: var(--grey); padding: 60px; border-radius: 4px; }
+        .rates-table { width: 100%; border-collapse: collapse; }
+        .rates-table td { padding: 20px 0; border-bottom: 1px solid #dcdcdc; }
+        .service-name { font-weight: 500; text-transform: uppercase; font-size: 0.9rem; }
+        .price { text-align: right; font-family: 'Bodoni Moda', serif; font-size: 1.2rem; color: var(--gold); }
 
+        /* Contact & Footer */
         .contact-btn {
-            display: inline-block; padding: 15px 30px; background: var(--primary);
-            color: white; text-decoration: none; border-radius: 2px; margin-top: 20px;
+            display: inline-block; padding: 18px 40px; background: var(--dark);
+            color: white; text-decoration: none; border-radius: 0; 
+            margin-top: 30px; letter-spacing: 2px; text-transform: uppercase;
+            font-size: 0.8rem; transition: 0.4s;
         }
+        .contact-btn:hover { background: var(--gold); }
 
-        @media (max-width: 768px) { h1 { font-size: 2.5rem; } section { padding: 50px 5%; } }
+        .social-links a { margin: 0 10px; color: var(--dark); text-decoration: none; font-weight: bold; }
+
+        @media (max-width: 768px) {
+            section { padding: 60px 5%; }
+            .rates-container { padding: 20px; }
+            nav a { margin: 0 10px; font-size: 0.7rem; }
+        }
     </style>
 </head>
 <body>
 
 <header>
-    <div>
-        <h1>Elle Makeup Artistry</h1>
-        <p>Clean. Cinematic. Timeless.</p>
+    <div class="hero-content">
+        <h1>Elle</h1>
+        <p>Makeup Artistry</p>
     </div>
 </header>
 
@@ -88,39 +142,51 @@
 </nav>
 
 <section id="about">
-    <h2>About Me</h2>
-    <p>Hi, I'm Michelle (Elle). I specialize in enhancing natural beauty with a focus on high-definition, cinematic finishes. My approach is minimalist yet impactful, ensuring every client looks stunning both in person and on camera.</p>
+    <h2>The Artistry</h2>
+    <div style="max-width: 800px; margin: auto; text-align: center;">
+        <p>Specializing in clean, cinematic beauty that prioritizes the skin's natural texture while creating a high-impact, timeless finish. Whether it’s for your wedding day or a high-fashion editorial, my goal is to create a look that feels like you—only elevated.</p>
+    </div>
 </section>
 
-<section id="portfolio" style="background: #fff;">
-    <h2>Portfolio</h2>
+<section id="portfolio">
+    <h2>Featured Works</h2>
     <div class="portfolio-grid">
-        <div class="portfolio-item"><img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&q=80" alt="Bridal"></div>
-        <div class="portfolio-item"><img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&q=80" alt="Editorial"></div>
-        <div class="portfolio-item"><img src="https://images.unsplash.com/photo-1522337621169-d6309bb82d91?auto=format&fit=crop&q=80" alt="Glam"></div>
+        <div class="portfolio-item"><img src="PHOTO_URL_1" alt="Elle Makeup Work"></div>
+        <div class="portfolio-item"><img src="PHOTO_URL_2" alt="Elle Makeup Work"></div>
+        <div class="portfolio-item"><img src="PHOTO_URL_3" alt="Elle Makeup Work"></div>
+        <div class="portfolio-item"><img src="PHOTO_URL_4" alt="Elle Makeup Work"></div>
+        <div class="portfolio-item"><img src="PHOTO_URL_5" alt="Elle Makeup Work"></div>
+        <div class="portfolio-item"><img src="PHOTO_URL_6" alt="Elle Makeup Work"></div>
     </div>
 </section>
 
 <section id="rates">
     <h2>Rates & Services</h2>
-    <table class="rates-table">
-        <tr><td>Bridal Makeup & Hair</td><td class="price">2500php</td></tr>
-        <tr><td>Special Occasion / Glam</td><td class="price">1500php</td></tr>
-        <tr><td>Editorial / Photoshoot (Half Day)</td><td class="price">2000php</td></tr>
-        <tr><td>Prom / Graduation</td><td class="price">1500php</td></tr>
-    </table>
-</section>
-
-<section id="contact" style="text-align: center;">
-    <h2>Book an Inquiry</h2>
-    <p>Ready to collaborate? Send me an email or find me on social media.</p>
-    <a href="mailto: ellemakeup.artistry88@gmail.com" class="contact-btn">Email Me Directly</a>
-    <div style="margin-top: 20px;">
-        <p>Facebook: <a href="https://www.facebook.com/profile.php?id=61571944390603" target="_blank" style="color: var(--primary); text-decoration: underline;">@ElleMakeupArtistry</a></p>
-        
-        <p>Instagram: <a href="https://www.instagram.com/ElleMakeupArtistry" target="_blank" style="color: var(--primary); text-decoration: underline;">@ElleMakeupArtistry</a></p>
+    <div class="rates-container">
+        <table class="rates-table">
+            <tr><td class="service-name">Bridal Makeup & Hair</td><td class="price">₱2,500</td></tr>
+            <tr><td class="service-name">Special Occasion / Glam</td><td class="price">₱1,500</td></tr>
+            <tr><td class="service-name">Editorial (Half Day)</td><td class="price">₱2,000</td></tr>
+            <tr><td class="service-name">Prom / Graduation</td><td class="price">₱1,500</td></tr>
+        </table>
     </div>
 </section>
+
+<section id="contact" style="text-align: center; background: var(--grey);">
+    <h2>Book Your Session</h2>
+    <p>Available for travel and studio bookings.</p>
+    <a href="mailto:ellemakeup.artistry88@gmail.com" class="contact-btn">Send Inquiry</a>
+    
+    <div class="social-links" style="margin-top: 40px;">
+        <p>Follow the journey:</p>
+        <a href="https://www.facebook.com/profile.php?id=61571944390603" target="_blank">FACEBOOK</a> | 
+        <a href="https://www.instagram.com/ElleMakeupArtistry" target="_blank">INSTAGRAM</a>
+    </div>
+</section>
+
+<footer style="padding: 40px; text-align: center; font-size: 0.7rem; letter-spacing: 1px; color: #999;">
+    &copy; 2026 ELLE MAKEUP ARTISTRY. ALL RIGHTS RESERVED.
+</footer>
 
 </body>
 </html>
