@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Elle Makeup Artistry | Professional MUA</title>
     <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
     <style>
         :root {
             --dark: #0f0f0f; /* Deep Midnight */
@@ -107,7 +109,7 @@
         .service-name { font-weight: 500; text-transform: uppercase; font-size: 0.9rem; }
         .price { text-align: right; font-family: 'Bodoni Moda', serif; font-size: 1.2rem; color: var(--gold); }
 
-        /* Contact & Footer */
+        /* Contact & Socials */
         .contact-btn {
             display: inline-block; padding: 18px 40px; background: var(--dark);
             color: white; text-decoration: none; border-radius: 0; 
@@ -116,7 +118,22 @@
         }
         .contact-btn:hover { background: var(--gold); }
 
-        .social-links a { margin: 0 10px; color: var(--dark); text-decoration: none; font-weight: bold; }
+        .social-links {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+        .social-links a { 
+            color: var(--dark); 
+            text-decoration: none; 
+            font-size: 1.4rem; 
+            transition: 0.3s ease; 
+        }
+        .social-links a:hover { 
+            color: var(--gold); 
+            transform: translateY(-3px); 
+        }
 
         @media (max-width: 768px) {
             section { padding: 60px 5%; }
@@ -177,11 +194,19 @@
     <p>Available for travel and studio bookings.</p>
     <a href="mailto:mchbctl18@gmail.com" class="contact-btn">Send Inquiry</a>
     
-    <div class="social-links" style="margin-top: 40px;">
-        <p>Follow the journey:</p>
-        <a href="https://www.facebook.com/profile.php?id=61571944390603" target="_blank">FACEBOOK</a> | 
-        <a href="https://www.instagram.com/ElleMakeupArtistry" target="_blank">INSTAGRAM</a> |
-        <a href="https://www.tiktok.com/@sheykia?_r=1&_t=ZS-95kxwRhby45" target="_blank">TIKTOK</a>
+    <div style="margin-top: 50px;">
+        <p style="font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; color: #777;">Follow the journey</p>
+        <div class="social-links">
+            <a href="https://www.facebook.com/profile.php?id=61571944390603" target="_blank" title="Facebook">
+                <i class="fa-brands fa-facebook-f"></i>
+            </a>
+            <a href="https://www.instagram.com/ElleMakeupArtistry" target="_blank" title="Instagram">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://www.tiktok.com/@sheykia?_r=1&_t=ZS-95kxwRhby45" target="_blank" title="TikTok">
+                <i class="fa-brands fa-tiktok"></i>
+            </a>
+        </div>
     </div>
 </section>
 
