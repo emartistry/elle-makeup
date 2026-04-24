@@ -30,10 +30,10 @@
             scroll-behavior: smooth;
         }
 
-        /* Hero Section - Original Light Overlay */
+        /* Hero Section */
         header {
             height: 80vh;
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
                         url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&q=80') center/cover;
             display: flex;
             flex-direction: column;
@@ -44,13 +44,13 @@
             padding: 0 20px;
         }
 
-        .hero-logo { width: 120px; margin-bottom: 20px; filter: brightness(0) invert(1); }
+        .hero-logo-img { width: 100px; margin-bottom: 20px; filter: brightness(0) invert(1); }
 
         .hero-content h1 { 
             font-family: 'Bodoni Moda', serif; 
             font-size: clamp(2.5rem, 8vw, 4.5rem); 
             margin: 0; 
-            letter-spacing: 5px;
+            letter-spacing: 2px;
             text-transform: uppercase;
         }
         
@@ -62,7 +62,7 @@
             color: var(--gold);
         }
 
-        /* Navigation - Original Sticky White */
+        /* Navigation */
         nav {
             position: sticky; top: 0; background: rgba(255,255,255,0.98); 
             padding: 1rem 10%;
@@ -75,13 +75,12 @@
 
         nav .nav-links a { 
             text-decoration: none; color: var(--dark); 
-            margin-left: 25px; font-weight: 500; font-size: 0.8rem; 
+            margin-left: 20px; font-weight: 500; font-size: 0.8rem; 
             letter-spacing: 2px; transition: 0.3s;
         }
         nav .nav-links a:hover { color: var(--gold); }
 
         section { padding: 100px 10%; max-width: 1400px; margin: auto; }
-        
         h2 { 
             font-family: 'Bodoni Moda', serif; 
             font-size: 2.5rem; text-align: center; 
@@ -92,33 +91,56 @@
             background: var(--gold); margin: 15px auto;
         }
 
-        /* Portfolio - Original Horizontal Scroll */
+        /* Portfolio Styling */
         .portfolio-container { display: flex; flex-direction: column; gap: 60px; }
+
         .client-group h3 {
-            font-family: 'Bodoni Moda', serif; font-size: 1.1rem;
-            text-transform: uppercase; letter-spacing: 3px; margin-bottom: 20px;
-            color: var(--dark); border-left: 2px solid var(--gold); padding-left: 15px;
+            font-family: 'Bodoni Moda', serif;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+            color: var(--dark);
+            border-left: 2px solid var(--gold);
+            padding-left: 15px;
         }
 
         .scroll-wrapper {
             display: flex; overflow-x: auto; gap: 15px; padding-bottom: 15px;
-            scroll-snap-type: x mandatory; scrollbar-width: thin; scrollbar-color: var(--gold) var(--grey);
+            scroll-snap-type: x mandatory;
+            scrollbar-width: thin;
+            scrollbar-color: var(--gold) var(--grey);
         }
+
         .scroll-wrapper::-webkit-scrollbar { height: 4px; }
+        .scroll-wrapper::-webkit-scrollbar-track { background: var(--grey); }
         .scroll-wrapper::-webkit-scrollbar-thumb { background: var(--gold); }
 
-        .portfolio-item { flex: 0 0 320px; aspect-ratio: 1/1; overflow: hidden; background: var(--grey); scroll-snap-align: start; }
-        .portfolio-item img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(15%); transition: 0.6s; }
+        .portfolio-item {
+            flex: 0 0 320px; aspect-ratio: 1/1;
+            overflow: hidden; background: var(--grey);
+            scroll-snap-align: start; position: relative;
+        }
+
+        .portfolio-item img { 
+            width: 100%; height: 100%; object-fit: cover; 
+            filter: grayscale(15%); transition: 0.6s cubic-bezier(0.25, 1, 0.5, 1); 
+        }
         .portfolio-item:hover img { transform: scale(1.05); filter: grayscale(0%); }
 
-        /* Rates - Original Table */
+        .item-caption {
+            font-size: 0.65rem; text-transform: uppercase; letter-spacing: 1px;
+            margin-top: 8px; color: #888; font-weight: 600;
+        }
+
+        /* Rates Table */
         .rates-container { background: var(--grey); padding: 60px; border-radius: 4px; }
         .rates-table { width: 100%; border-collapse: collapse; }
         .rates-table td { padding: 20px 0; border-bottom: 1px solid #dcdcdc; }
-        .service-name { font-weight: 500; text-transform: uppercase; font-size: 0.85rem; }
+        .service-name { font-weight: 500; text-transform: uppercase; font-size: 0.9rem; }
         .price { text-align: right; font-family: 'Bodoni Moda', serif; font-size: 1.2rem; color: var(--gold); }
 
-        /* Contact & Buttons */
+        /* Contact & Socials */
         .contact-btn {
             display: inline-block; padding: 18px 40px; background: var(--dark);
             color: white; text-decoration: none; border-radius: 0; 
@@ -128,13 +150,14 @@
         .contact-btn:hover { background: var(--gold); }
 
         .social-links { margin-top: 40px; display: flex; justify-content: center; gap: 30px; }
-        .social-links a { color: var(--dark); font-size: 1.4rem; transition: 0.3s; }
+        .social-links a { color: var(--dark); text-decoration: none; font-size: 1.4rem; transition: 0.3s ease; }
         .social-links a:hover { color: var(--gold); transform: translateY(-3px); }
 
         @media (max-width: 768px) {
-            nav { flex-direction: column; gap: 15px; }
-            nav .nav-links a { margin: 0 10px; font-size: 0.7rem; }
+            nav { flex-direction: column; gap: 10px; }
             section { padding: 60px 5%; }
+            .rates-container { padding: 20px; }
+            nav .nav-links a { margin: 0 10px; font-size: 0.7rem; }
             .portfolio-item { flex: 0 0 260px; }
         }
     </style>
@@ -142,7 +165,7 @@
 <body>
 
 <header>
-    <img src="https://i.ibb.co/v4m0YQ6N/Elle-Logo-Monogram.png" alt="EM" class="hero-logo">
+    <img src="https://i.ibb.co/v4m0YQ6N/Elle-Logo-Monogram.png" alt="EM" class="hero-logo-img">
     <div class="hero-content">
         <h1>Elle</h1>
         <p>Makeup Artistry</p>
@@ -150,7 +173,7 @@
 </header>
 
 <nav>
-    <img src="https://i.ibb.co/v4m0YQ6N/Elle-Logo-Monogram.png" alt="Elle" class="nav-logo-img">
+    <img src="https://i.ibb.co/v4m0YQ6N/Elle-Logo-Monogram.png" alt="Logo" class="nav-logo-img">
     <div class="nav-links">
         <a href="#about">ABOUT</a>
         <a href="#portfolio">PORTFOLIO</a>
@@ -163,21 +186,26 @@
     <h2>The Artistry</h2>
     <div style="max-width: 800px; margin: auto; text-align: center;">
         <p>I’m <strong>Michelle</strong>, a professional hair and makeup artist dedicated to the art of the <strong>Soft Glam</strong>. My approach focuses on creating a clean, cinematic finish that celebrates your natural skin texture while providing expert hair styling to complete your transformation.</p>
+        <p>Whether it’s for a wedding, an editorial shoot, or a special milestone, I specialize in high-impact elegance that feels effortless and timeless.</p>
     </div>
 </section>
 
 <section id="portfolio">
     <h2>Featured Works</h2>
     <div class="portfolio-container">
+        
         <div class="client-group">
             <h3>Soft Glam Editorial</h3>
-            <div class="scroll-wrapper">
-                <div class="portfolio-item"><img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&q=80" alt="Work"></div>
-                <div class="portfolio-item"><img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&q=80" alt="Work"></div>
-                <div class="portfolio-item"><img src="https://images.unsplash.com/photo-1526045478516-99145907023c?auto=format&fit=crop&q=80" alt="Work"></div>
-                <div class="portfolio-item"><img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&q=80" alt="Work"></div>
-            </div>
+            <div id="editorial-gallery" class="scroll-wrapper">
+                </div>
         </div>
+
+        <div class="client-group">
+            <h3>Bridal & Hair Styling</h3>
+            <div id="bridal-gallery" class="scroll-wrapper">
+                </div>
+        </div>
+
     </div>
 </section>
 
@@ -197,16 +225,133 @@
     <h2>Book Your Session</h2>
     <p>Available for travel and studio bookings.</p>
     <a href="mailto:mchbctl18@gmail.com" class="contact-btn">Send Inquiry</a>
-    <div class="social-links">
-        <a href="https://www.facebook.com/profile.php?id=61571944390603" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
-        <a href="https://www.instagram.com/im.justmi_" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-        <a href="https://www.tiktok.com/@sheykia?_r=1&_t=ZS-95kxwRhby45" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+    
+    <div style="margin-top: 50px;">
+        <p style="font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; color: #777;">Follow the journey</p>
+        <div class="social-links">
+            <a href="https://www.facebook.com/profile.php?id=61571944390603" target="_blank" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/im.justmi_" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@sheykia?_r=1&_t=ZS-95kxwRhby45" target="_blank" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+        </div>
     </div>
 </section>
 
 <footer style="padding: 40px; text-align: center; font-size: 0.7rem; letter-spacing: 1px; color: #999;">
-    &copy; 2025 ELLE MAKEUP ARTISTRY. ALL RIGHTS RESERVED.
+    &copy; 2026 ELLE MAKEUP ARTISTRY. ALL RIGHTS RESERVED.
 </footer>
+
+<script>
+    // --- EASY PORTFOLIO UPDATE ---
+    // Add new photos here. Category must be 'editorial' or 'bridal'
+    const myWorks = [
+        { name: "Editorial 01", img: "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&q=80", cat: "editorial" },
+        { name: "Cinematic Glow", img: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&q=80", cat: "editorial" },
+        { name: "Clean Finish", img: "https://images.unsplash.com/photo-1526045478516-99145907023c?auto=format&fit=crop&q=80", cat: "editorial" },
+        { name: "Classic Bride", img: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&q=80", cat: "bridal" },
+        { name: "Wedding Guest Hair", img: "https://images.unsplash.com/photo-1594465919760-441fe5908ab0?auto=format&fit=crop&q=80", cat: "bridal" }
+    ];
+
+    function renderPortfolio() {
+        const edBox = document.getElementById('editorial-gallery');
+        const brBox = document.getElementById('bridal-gallery');
+
+        myWorks.forEach(work => {
+            const html = `
+                <div class="portfolio-item">
+                    <img src="${work.img}" alt="${work.name}">
+                    <div class="item-caption">${work.name}</div>
+                </div>
+            `;
+            if(work.cat === 'editorial') edBox.innerHTML += html;
+            else brBox.innerHTML += html;
+        });
+    }
+
+    window.onload = renderPortfolio;
+</script>
+
+</body>
+</html>
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="https://i.ibb.co/v4m0YQ6N/Elle-Logo-Monogram.png" alt="EM" class="hero-logo">
+    <h1 style="font-family: 'Bodoni Moda'; letter-spacing: 5px; text-transform: uppercase; margin: 0;">Elle</h1>
+    <p style="letter-spacing: 3px; color: var(--gold); font-size: 0.9rem;">ARTISTRY</p>
+</header>
+
+<nav>
+    <img src="https://i.ibb.co/v4m0YQ6N/Elle-Logo-Monogram.png" alt="Elle" class="nav-logo-img">
+    <div class="nav-links">
+        <a href="#portfolio">PORTFOLIO</a>
+        <a href="#rates">RATES</a>
+        <a href="mailto:mchbctl18@gmail.com">BOOK</a>
+    </div>
+</nav>
+
+<section id="portfolio">
+    <h2>The Portfolio</h2>
+    
+    <div class="portfolio-group">
+        <div class="group-title">Editorial & Glam</div>
+        <div id="editorial-gallery" class="scroll-wrapper"></div>
+    </div>
+
+    <div class="portfolio-group">
+        <div class="group-title">Bridal & Weddings</div>
+        <div id="bridal-gallery" class="scroll-wrapper"></div>
+    </div>
+</section>
+
+<section id="rates">
+    <h2>Rates</h2>
+    <div class="rates-container">
+        <table class="rates-table">
+            <tr><td>Bridal Makeup & Hair</td><td class="price">₱2,500</td></tr>
+            <tr><td>Special Occasion / Glam</td><td class="price">₱1,500</td></tr>
+            <tr><td>Editorial Artistry</td><td class="price">₱2,000</td></tr>
+        </table>
+    </div>
+</section>
+
+<footer>&copy; 2026 ELLE MAKEUP ARTISTRY</footer>
+
+<script>
+    // 1. ADD YOUR NEW CLIENTS HERE
+    const myWorks = [
+        { name: "Celine - Soft Glam", img: "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&q=80", category: "editorial" },
+        { name: "Editorial Look 02", img: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&q=80", category: "editorial" },
+        { name: "Wedding Guest", img: "https://images.unsplash.com/photo-1526045478516-99145907023c?auto=format&fit=crop&q=80", category: "bridal" },
+        { name: "The Classic Bride", img: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&q=80", category: "bridal" },
+        // Just copy the line above to add more!
+    ];
+
+    // 2. THIS CODE AUTOMATICALLY PUTS THEM ON THE PAGE
+    function loadPortfolio() {
+        const editorialContainer = document.getElementById('editorial-gallery');
+        const bridalContainer = document.getElementById('bridal-gallery');
+
+        myWorks.forEach(work => {
+            const itemHTML = `
+                <div class="portfolio-item">
+                    <img src="${work.img}" alt="${work.name}">
+                    <div class="client-name">${work.name}</div>
+                </div>
+            `;
+
+            if(work.category === 'editorial') {
+                editorialContainer.innerHTML += itemHTML;
+            } else {
+                bridalContainer.innerHTML += itemHTML;
+            }
+        });
+    }
+
+    // Run the function when page loads
+    window.onload = loadPortfolio;
+</script>
 
 </body>
 </html>
