@@ -3,17 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elle Makeup Artistry | Professional Hair & MUA by Michelle</title>
-    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+    <title>Elle Makeup Artistry | Professional Hair & MUA</title>
+    
+    <link rel="icon" type="image/png" href="https://i.ibb.co/v4m0YQ6N/Elle-Logo-Monogram.png">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     
     <style>
         :root {
-            --dark: #0f0f0f;
-            --gold: #c5a059;
-            --light: #ffffff;
-            --grey: #f4f4f4;
-            --text: #2d2d2d;
+            --bg-dark: #0a0a0a;
+            --accent-gold: #d4af37;
+            --rose-gold: #b76e79;
+            --soft-white: #fafafa;
+            --card-bg: #141414;
         }
 
         * { box-sizing: border-box; }
@@ -21,239 +24,166 @@
         body {
             font-family: 'Montserrat', sans-serif;
             margin: 0;
-            line-height: 1.7;
-            color: var(--text);
-            background-color: var(--light);
+            background-color: var(--bg-dark);
+            color: var(--soft-white);
+            line-height: 1.6;
             scroll-behavior: smooth;
         }
 
-        /* Hero Section */
-        header {
-            height: 80vh;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
-                        url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&q=80') center/cover;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-align: center;
-            padding: 0 20px;
-        }
-
-        .hero-content h1 { 
-            font-family: 'Bodoni Moda', serif; 
-            font-size: clamp(2.5rem, 8vw, 4.5rem); 
-            margin: 0; 
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-        
-        .hero-content p { 
-            font-size: 1.1rem; 
-            letter-spacing: 4px; 
-            text-transform: uppercase; 
-            margin-top: 10px;
-            color: var(--gold);
-        }
-
-        /* Navigation */
+        /* Navigation with Logo */
         nav {
-            position: sticky; top: 0; background: rgba(255,255,255,0.98); 
-            padding: 1.2rem;
-            text-align: center; border-bottom: 1px solid #eee; z-index: 1000;
-            backdrop-filter: blur(5px);
+            position: sticky; top: 0; 
+            background: rgba(10, 10, 10, 0.95); 
+            padding: 1rem 5%;
+            display: flex; justify-content: space-between; align-items: center;
+            border-bottom: 1px solid #222; z-index: 1000;
+            backdrop-filter: blur(10px);
         }
 
-        nav a { 
-            text-decoration: none; color: var(--dark); 
-            margin: 0 20px; font-weight: 500; font-size: 0.8rem; 
-            letter-spacing: 2px; transition: 0.3s;
-        }
-        nav a:hover { color: var(--gold); }
+        .nav-logo { height: 40px; } /* Your 'EM' Monogram here */
 
+        nav .links a { 
+            text-decoration: none; color: var(--soft-white); 
+            margin-left: 25px; font-weight: 400; font-size: 0.75rem; 
+            letter-spacing: 2px; transition: 0.3s; text-transform: uppercase;
+        }
+        nav .links a:hover { color: var(--rose-gold); }
+
+        /* Hero Section Redesign */
+        header {
+            height: 90vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?q=80&w=2071&auto=format&fit=crop'); 
+            background-size: cover; background-position: center;
+            display: flex; align-items: center; justify-content: center;
+            text-align: center;
+        }
+
+        .hero-logo { width: 250px; margin-bottom: 20px; }
+
+        /* Sections */
         section { padding: 100px 10%; max-width: 1400px; margin: auto; }
+        
         h2 { 
             font-family: 'Bodoni Moda', serif; 
-            font-size: 2.5rem; text-align: center; 
-            margin-bottom: 50px; position: relative; 
-        }
-        h2::after {
-            content: ''; display: block; width: 50px; height: 2px; 
-            background: var(--gold); margin: 15px auto;
+            font-size: 2.2rem; text-align: left; 
+            margin-bottom: 40px; color: var(--rose-gold);
+            text-transform: uppercase; letter-spacing: 3px;
         }
 
-        /* Portfolio Styling */
-        .portfolio-container {
-            display: flex;
-            flex-direction: column;
-            gap: 60px;
+        /* Modern Portfolio Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
         }
 
-        .client-group h3 {
-            font-family: 'Bodoni Moda', serif;
-            font-size: 1.1rem;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            margin-bottom: 20px;
-            color: var(--dark);
-            border-left: 2px solid var(--gold);
-            padding-left: 15px;
+        .gallery-item {
+            position: relative; overflow: hidden; aspect-ratio: 4/5;
+            background: var(--card-bg);
         }
 
-        .scroll-wrapper {
-            display: flex;
-            overflow-x: auto;
-            gap: 15px;
-            padding-bottom: 15px;
-            scroll-snap-type: x mandatory;
-            scrollbar-width: thin;
-            scrollbar-color: var(--gold) var(--grey);
-        }
-
-        .scroll-wrapper::-webkit-scrollbar { height: 4px; }
-        .scroll-wrapper::-webkit-scrollbar-track { background: var(--grey); }
-        .scroll-wrapper::-webkit-scrollbar-thumb { background: var(--gold); }
-
-        .portfolio-item {
-            flex: 0 0 320px;
-            aspect-ratio: 1/1;
-            overflow: hidden;
-            background: var(--grey);
-            scroll-snap-align: start;
-        }
-
-        .portfolio-item img { 
+        .gallery-item img { 
             width: 100%; height: 100%; object-fit: cover; 
-            filter: grayscale(15%); transition: 0.6s cubic-bezier(0.25, 1, 0.5, 1); 
+            transition: transform 0.8s ease; opacity: 0.8;
         }
-        .portfolio-item:hover img { transform: scale(1.05); filter: grayscale(0%); }
+        .gallery-item:hover img { transform: scale(1.08); opacity: 1; }
 
-        /* Rates Table */
-        .rates-container { background: var(--grey); padding: 60px; border-radius: 4px; }
+        /* Premium Rates Table */
+        .rates-card {
+            background: var(--card-bg);
+            padding: 50px;
+            border: 1px solid #222;
+            border-radius: 2px;
+        }
+
         .rates-table { width: 100%; border-collapse: collapse; }
-        .rates-table td { padding: 20px 0; border-bottom: 1px solid #dcdcdc; }
-        .service-name { font-weight: 500; text-transform: uppercase; font-size: 0.9rem; }
-        .price { text-align: right; font-family: 'Bodoni Moda', serif; font-size: 1.2rem; color: var(--gold); }
+        .rates-table td { padding: 25px 0; border-bottom: 1px solid #222; }
+        .service-name { font-weight: 300; letter-spacing: 1.5px; text-transform: uppercase; font-size: 0.85rem; }
+        .price { text-align: right; font-family: 'Bodoni Moda', serif; font-size: 1.4rem; color: var(--rose-gold); }
 
-        /* Contact & Socials */
-        .contact-btn {
-            display: inline-block; padding: 18px 40px; background: var(--dark);
-            color: white; text-decoration: none; border-radius: 0; 
-            margin-top: 30px; letter-spacing: 2px; text-transform: uppercase;
-            font-size: 0.8rem; transition: 0.4s;
+        /* Action Buttons */
+        .cta-btn {
+            display: inline-block; padding: 20px 50px; 
+            background: transparent; border: 1px solid var(--rose-gold);
+            color: var(--rose-gold); text-decoration: none;
+            text-transform: uppercase; letter-spacing: 3px; font-size: 0.8rem;
+            transition: all 0.4s; margin-top: 20px;
         }
-        .contact-btn:hover { background: var(--gold); }
+        .cta-btn:hover { background: var(--rose-gold); color: white; }
 
-        .social-links {
-            margin-top: 40px;
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-        }
-        .social-links a { 
-            color: var(--dark); 
-            text-decoration: none; 
-            font-size: 1.4rem; 
-            transition: 0.3s ease; 
-        }
-        .social-links a:hover { 
-            color: var(--gold); 
-            transform: translateY(-3px); 
+        footer { 
+            padding: 60px; text-align: center; border-top: 1px solid #111; 
+            font-size: 0.65rem; letter-spacing: 2px; color: #555;
         }
 
         @media (max-width: 768px) {
+            nav { justify-content: center; flex-direction: column; gap: 15px; }
             section { padding: 60px 5%; }
-            .rates-container { padding: 20px; }
-            nav a { margin: 0 10px; font-size: 0.7rem; }
-            .portfolio-item { flex: 0 0 260px; }
+            .hero-logo { width: 180px; }
         }
     </style>
 </head>
 <body>
 
+<nav>
+    <img src="https://i.ibb.co/v4m0YQ6N/Elle-Logo-Monogram.png" alt="Logo" class="nav-logo">
+    <div class="links">
+        <a href="#about">About</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#rates">Rates</a>
+        <a href="#contact">Contact</a>
+    </div>
+</nav>
+
 <header>
     <div class="hero-content">
-        <h1>Elle</h1>
-        <p>Makeup Artistry</p>
+        <img src="https://i.ibb.co/v4m0YQ6N/Elle-Logo-Monogram.png" alt="Elle Monogram" class="hero-logo">
+        <h1 style="font-family: 'Bodoni Moda'; font-size: 3.5rem; margin:0; letter-spacing: 8px; text-transform: uppercase;">ELLE</h1>
+        <p style="letter-spacing: 5px; font-weight: 300; color: var(--rose-gold);">MAKEUP ARTISTRY</p>
     </div>
 </header>
 
-<nav>
-    <a href="#about">ABOUT</a>
-    <a href="#portfolio">PORTFOLIO</a>
-    <a href="#rates">RATES</a>
-    <a href="#contact">CONTACT</a>
-</nav>
-
 <section id="about">
-    <h2>The Artistry</h2>
-    <div style="max-width: 800px; margin: auto; text-align: center;">
-        <p>I’m <strong>Michelle</strong>, a professional hair and makeup artist dedicated to the art of the <strong>Soft Glam</strong>. My approach focuses on creating a clean, cinematic finish that celebrates your natural skin texture while providing expert hair styling to complete your transformation.</p>
-        
-        <p>Whether it’s for a wedding, an editorial shoot, or a special milestone, I specialize in high-impact elegance that feels effortless and timeless. My goal is to craft a look that feels like the most elevated version of you.</p>
+    <div style="max-width: 700px;">
+        <h2>The Artistry</h2>
+        <p>Expert Soft Glam and cinematic hair styling by <strong>Michelle</strong>. Specializing in high-impact elegance that feels effortless and timeless.</p>
     </div>
 </section>
 
 <section id="portfolio">
-    <h2>Featured Works</h2>
-    <div class="portfolio-container">
-        
-        <div class="client-group">
-            <h3>Soft Glam Editorial</h3>
-            <div class="scroll-wrapper">
-                <div class="portfolio-item"><img src="PHOTO_URL_1" alt="Michelle's Work"></div>
-                <div class="portfolio-item"><img src="PHOTO_URL_2" alt="Michelle's Work"></div>
-                <div class="portfolio-item"><img src="PHOTO_URL_3" alt="Michelle's Work"></div>
-                <div class="portfolio-item"><img src="PHOTO_URL_4" alt="Michelle's Work"></div>
-            </div>
-        </div>
-
-        <div class="client-group">
-            <h3>Bridal & Hair Styling</h3>
-            <div class="scroll-wrapper">
-                <div class="portfolio-item"><img src="PHOTO_URL_5" alt="Michelle's Work"></div>
-                <div class="portfolio-item"><img src="PHOTO_URL_6" alt="Michelle's Work"></div>
-                <div class="portfolio-item"><img src="PHOTO_URL_1" alt="Michelle's Work"></div>
-            </div>
-        </div>
-
+    <h2>Soft Glam Portfolio</h2>
+    <div class="gallery-grid">
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&q=80" alt="Work"></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&q=80" alt="Work"></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1526045478516-99145907023c?auto=format&fit=crop&q=80" alt="Work"></div>
     </div>
 </section>
 
 <section id="rates">
-    <h2>Rates & Services</h2>
-    <div class="rates-container">
+    <h2>Rates & Investment</h2>
+    <div class="rates-card">
         <table class="rates-table">
             <tr><td class="service-name">Bridal Makeup & Hair</td><td class="price">₱2,500</td></tr>
             <tr><td class="service-name">Special Occasion / Glam</td><td class="price">₱1,500</td></tr>
-            <tr><td class="service-name">Editorial </td><td class="price">₱2,000</td></tr>
+            <tr><td class="service-name">Editorial Artistry</td><td class="price">₱2,000</td></tr>
             <tr><td class="service-name">Prom / Graduation</td><td class="price">₱1,500</td></tr>
         </table>
-    </div>
-</section>
-
-<section id="contact" style="text-align: center; background: var(--grey);">
-    <h2>Book Your Session</h2>
-    <p>Available for travel and studio bookings.</p>
-    <a href="mailto:mchbctl18@gmail.com" class="contact-btn">Send Inquiry</a>
-    
-    <div style="margin-top: 50px;">
-        <p style="font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; color: #777;">Follow the journey</p>
-        <div class="social-links">
-            <a href="https://www.facebook.com/profile.php?id=61571944390603" target="_blank" title="Facebook">
-                <i class="fa-brands fa-facebook-f"></i>
-            </a>
-            <a href="https://www.instagram.com/im.justmi_" target="_blank" title="Instagram">
-                <i class="fa-brands fa-instagram"></i>
-            </a>
-            <a href="https://www.tiktok.com/@sheykia?_r=1&_t=ZS-95kxwRhby45" target="_blank" title="TikTok">
-                <i class="fa-brands fa-tiktok"></i>
-            </a>
+        <div style="text-align: center;">
+            <a href="mailto:mchbctl18@gmail.com" class="cta-btn">Send Inquiry</a>
         </div>
     </div>
 </section>
 
-<footer style="padding: 40px; text-align: center; font-size: 0.7rem; letter-spacing: 1px; color: #999;">
+<section id="contact" style="text-align: center;">
+    <div style="display: flex; justify-content: center; gap: 40px; font-size: 1.5rem;">
+        <a href="https://www.facebook.com/profile.php?id=61571944390603" style="color: white;"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/im.justmi_" style="color: white;"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@sheykia?_r=1&_t=ZS-95kxwRhby45" style="color: white;"><i class="fa-brands fa-tiktok"></i></a>
+    </div>
+</section>
+
+<footer>
     &copy; 2025 ELLE MAKEUP ARTISTRY. ALL RIGHTS RESERVED.
 </footer>
 
