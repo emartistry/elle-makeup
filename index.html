@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Elle Makeup Artistry | Professional Hair & MUA by Michelle</title>
-    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     
     <style>
@@ -128,12 +128,85 @@
         }
         .portfolio-item:hover img { transform: scale(1.05); filter: grayscale(0%); }
 
-        /* Rates Table */
-        .rates-container { background: var(--grey); padding: 60px; border-radius: 4px; }
-        .rates-table { width: 100%; border-collapse: collapse; }
-        .rates-table td { padding: 20px 0; border-bottom: 1px solid #dcdcdc; }
-        .service-name { font-weight: 500; text-transform: uppercase; font-size: 0.9rem; }
-        .price { text-align: right; font-family: 'Bodoni Moda', serif; font-size: 1.2rem; color: var(--gold); }
+        /* Rates Section Redesign */
+        .rates-container { 
+            background: var(--grey); 
+            padding: 60px; 
+            border-radius: 4px; 
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .package-category {
+            margin-bottom: 40px;
+        }
+        .package-category:last-child {
+            margin-bottom: 0;
+        }
+        .category-title {
+            font-family: 'Bodoni Moda', serif;
+            font-size: 1.5rem;
+            color: var(--dark);
+            border-bottom: 1px solid var(--gold);
+            padding-bottom: 8px;
+            margin-bottom: 25px;
+        }
+        .category-subtitle {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #777;
+            margin-top: -20px;
+            margin-bottom: 25px;
+            font-style: italic;
+        }
+        .package-item {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed #dcdcdc;
+        }
+        .package-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .package-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 8px;
+        }
+        .package-name {
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            color: var(--dark);
+        }
+        .package-price {
+            font-family: 'Bodoni Moda', serif;
+            font-size: 1.3rem;
+            color: var(--gold);
+            font-weight: bold;
+            white-space: nowrap;
+        }
+        .package-desc {
+            font-size: 0.85rem;
+            color: #555;
+            margin: 0;
+            line-height: 1.5;
+        }
+        .savings-badge {
+            display: inline-block;
+            background: #e6dfd1;
+            color: var(--dark);
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 2px 8px;
+            margin-left: 10px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            vertical-align: middle;
+        }
 
         /* Contact & Socials */
         .contact-btn {
@@ -163,9 +236,11 @@
 
         @media (max-width: 768px) {
             section { padding: 60px 5%; }
-            .rates-container { padding: 20px; }
+            .rates-container { padding: 30px 20px; }
             nav a { margin: 0 10px; font-size: 0.7rem; }
             .portfolio-item { flex: 0 0 260px; }
+            .package-header { flex-direction: column; gap: 5px; }
+            .savings-badge { margin-left: 0; margin-top: 5px; }
         }
     </style>
 </head>
@@ -221,14 +296,53 @@
 </section>
 
 <section id="rates">
-    <h2>Rates & Services</h2>
+    <h2>Wedding Hair & Makeup Packages</h2>
     <div class="rates-container">
-        <table class="rates-table">
-            <tr><td class="service-name">Bridal Makeup & Hair</td><td class="price">₱2,500</td></tr>
-            <tr><td class="service-name">Special Occasion / Glam</td><td class="price">₱1,500</td></tr>
-            <tr><td class="service-name">Editorial </td><td class="price">₱2,000</td></tr>
-            <tr><td class="service-name">Prom / Graduation</td><td class="price">₱1,500</td></tr>
-        </table>
+        
+        <!-- Category 1: Solo Bride -->
+        <div class="package-category">
+            <div class="category-title">1. Solo Bride Packages</div>
+            <div class="category-subtitle">Ideal for minimalists or couples with separate prep locations.</div>
+            
+            <div class="package-item">
+                <div class="package-header">
+                    <span class="package-name">Standard Bridal Look</span>
+                    <span class="package-price">₱1,500</span>
+                </div>
+                <p class="package-desc">Full professional hair and makeup for the Bride. Service ends once the bride leaves for the ceremony.</p>
+            </div>
+            
+            <div class="package-item">
+                <div class="package-header">
+                    <span class="package-name">Deluxe Bridal Look (With Reception Touch-up)</span>
+                    <span class="package-price">₱2,700</span>
+                </div>
+                <p class="package-desc">Full professional hair and makeup for the Bride. Artist stays/travels to the reception venue for a second look or mandatory touch-ups before the grand entrance.</p>
+            </div>
+        </div>
+
+        <!-- Category 2: Couple Packages -->
+        <div class="package-category">
+            <div class="category-title">2. Couple Packages (Bride + Groom)</div>
+            <div class="category-subtitle">Bundling the groom makes it easy for them to book everything together while giving you a guaranteed add-on.</div>
+            
+            <div class="package-item">
+                <div class="package-header">
+                    <span class="package-name">Classic Couple Package <span class="savings-badge">Save ₱200</span></span>
+                    <span class="package-price">₱2,000</span>
+                </div>
+                <p class="package-desc">Full hair and makeup for the Bride + Male grooming for the Groom (skin prep, anti-shine, hair styling). <br><strong>Note:</strong> Both must be at the same prep location.</p>
+            </div>
+            
+            <div class="package-item">
+                <div class="package-header">
+                    <span class="package-name">The Radiant Couple Package (Full-Day Coverage) <span class="savings-badge">Save ₱200</span></span>
+                    <span class="package-price">₱3,200</span>
+                </div>
+                <p class="package-desc">Full hair and makeup for the Bride + Groom grooming at the prep location. Artist attendance at the reception venue for look changes and touch-ups for the couple.</p>
+            </div>
+        </div>
+
     </div>
 </section>
 
@@ -243,7 +357,7 @@
             <a href="https://www.facebook.com/profile.php?id=61571944390603" target="_blank" title="Facebook">
                 <i class="fa-brands fa-facebook-f"></i>
             </a>
-            <a href="https://www.instagram.com/elle.makeup.artistry" target="_blank" title="Instagram">
+            <a href="https://www.instagram.com/im.justmi_" target="_blank" title="Instagram">
                 <i class="fa-brands fa-instagram"></i>
             </a>
             <a href="https://www.tiktok.com/@sheykia?_r=1&_t=ZS-95kxwRhby45" target="_blank" title="TikTok">
@@ -254,7 +368,7 @@
 </section>
 
 <footer style="padding: 40px; text-align: center; font-size: 0.7rem; letter-spacing: 1px; color: #999;">
-    &copy; 2025 ELLE MAKEUP ARTISTRY. ALL RIGHTS RESERVED.
+    © 2025 ELLE MAKEUP ARTISTRY. ALL RIGHTS RESERVED.
 </footer>
 
 </body>
